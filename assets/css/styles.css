@@ -1066,3 +1066,25 @@ input { outline: none; }
         transform: translateY(0);
     }
 }
+
+.nature__img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    font-weight: var(--font-medium);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all .4s ease-out;
+}
+
+.nature__img-wrapper:hover .nature__img-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
