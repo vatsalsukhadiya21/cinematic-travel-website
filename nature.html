@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <title>Nature - Responsive Website Travel</title>
+</head>
+<body>
+    <header class="header scroll-header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Travel</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#discover" class="nav__link">Discover</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#place" class="nav__link">Places</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="explore.html" class="nav__link">Explore</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="hidden.html" class="nav__link">Hidden</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="nature.html" class="nav__link active-link">Nature</a>
+                    </li>
+                </ul>
+
+                <div class="nav__dark">
+                    <span class="change-theme-name">Dark mode</span>
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+                </div>
+
+                <i class="ri-close-line nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-function-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section" style="padding-top: 8rem; min-height: 100vh;">
+            <div class="container">
+                <div class="nature__page-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h1 class="section__title" style="margin-bottom: var(--mb-1);">Explore Nature</h1>
+                    <p style="color: var(--text-color); max-width: 600px; margin: 0 auto 2rem;">
+                        Select a category to discover the most beautiful natural spots in the world. Enjoy multiple views of each location.
+                    </p>
+                    
+                    <div class="nature__dropdown-container">
+                        <select id="nature-category-select" class="nature__select">
+                            <option value="mountains">Best mountains tracking and climbing</option>
+                            <option value="forest">Best adventure forest</option>
+                            <option value="beaches">Best beaches</option>
+                            <option value="historical">Best historical places</option>
+                            <option value="living">Best living experience</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="nature__gallery" id="nature-gallery">
+                    <!-- Images will be injected here via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content grid">
+                <div class="footer__data">
+                    <h3 class="footer__title">Travel</h3>
+                    <p class="footer__description">Travel you choose the <br> destination, 
+                        we offer you the <br> experience.
+                    </p>
+                    <div>
+                        <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                            <i class="ri-facebook-box-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="footer__social">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">About</h3>
+                    <ul>
+                        <li class="footer__item"><a href="" class="footer__link">About Us</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">Features</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">New & Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Company</h3>
+                    <ul>
+                        <li class="footer__item"><a href="" class="footer__link">Team</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">Plan y Pricing</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">Become a member</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Support</h3>
+                    <ul>
+                        <li class="footer__item"><a href="" class="footer__link">FAQs</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">Support Center</a></li>
+                        <li class="footer__item"><a href="" class="footer__link">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__copy">&#169; 2026 Designed & Built by Whats.</p>
+                <div class="footer__terms">
+                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                    <a href="#" class="footer__terms-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+
+    <!--=============== NATURE FILTER LOGIC ===============-->
+    <script>
+        const categoryData = {
+            mountains: [
+                'https://media.gettyimages.com/id/1917977425/photo/beach-sea-and-mountains.jpg?s=612x612&w=0&k=20&c=TaGbpT4sV2fyr5-2CE_jfMlkRknwjvDRHhXlOn2V0KU=',
+                'https://media.gettyimages.com/id/1625985839/vector/retro-adventure-monoline-badge-designs.jpg?s=612x612&w=0&k=20&c=3SnG36GF8FkQgM02rsLCAkPeR-TXHmDPvrczCTkfWZI=',
+                'https://media.gettyimages.com/id/480847435/photo/tunnels-beach-and-bali-hai-point.jpg?s=612x612&w=0&k=20&c=hGtvmVqn8A_8visrDUqGz9CAumpxRm8w_eoDPBbLmRU=',
+                'https://media.gettyimages.com/id/938335974/photo/aerial-view-of-kualoa-area-of-oahu-hawaii.jpg?s=612x612&w=0&k=20&c=OqqkjtRGFffwCx5Ac4kyfO9AReN-wnc6hGW8jJp7vok=',
+                'https://media.gettyimages.com/id/903132006/photo/beautiful-na-pali-coast-sunset-from-the-kalalau-trail-on-kauais-north-shore.jpg?s=612x612&w=0&k=20&c=WQknFVKgc8tuSUHiUjPQWCKlg9PwEmTJjQrGhXk7M8g=',
+                'https://media.gettyimages.com/id/1474089369/photo/a-woman-standing-at-phi-phi-view-point-and-see-the-view-from-a-birds-eye-view-of-the.jpg?s=612x612&w=0&k=20&c=u3P6EfnDti-SghKFwKTEGM6GDHeQOt2ObsCGWb7lKtM=',
+                'https://media.gettyimages.com/id/1410453414/vector/blue-curves-and-the-waves-of-the-sea-range-from-soft-to-dark-vector-background-flat-design.jpg?s=612x612&w=0&k=20&c=KxeWZHdwSRNrm1JDwgLalmXH_XSo6UH7QzI_gGsqSuc=',
+                'https://media.gettyimages.com/id/2180810921/photo/aerial-view-of-the-llandudno-beach-cape-town-south-africa.jpg?s=612x612&w=0&k=20&c=kDh2yXc6NIhWBOxu6-5qNcfxVIwJur4ka4yhin-r6rY=',
+                'https://media.gettyimages.com/id/1035400870/photo/path-to-san-juan-de-gaztelugatxe-basque-country-spain.jpg?s=612x612&w=0&k=20&c=d6BEEMm6cSgnWxdY3L8-rktkC8rHhDSJtGIl8ejVsHw=',
+                'https://media.gettyimages.com/id/1328785481/photo/sea-cliff-bridge-rocky-coast-road-highway-and-mountain-aerial-view.jpg?s=612x612&w=0&k=20&c=o93SsEW2KHWLTRgFquBudV7A1OV60REFm6YjOk5QBn4=',
+                'https://media.gettyimages.com/id/1183542465/photo/sunrise-scene-of-austrian-landscape-with-forests-fog-meadows-fields-and-pastures-surrounding.jpg?s=612x612&w=0&k=20&c=i7dP35Lek79s8E_Xrcpfx2VSAz3vi0GaV4FH2g_k69M=',
+                'https://media.gettyimages.com/id/157404361/photo/the-rugged-napali-coastline-of-kauai-hawaii.jpg?s=612x612&w=0&k=20&c=tDMtQpE3cO1HnQOdi4t30kTOduta2owbiGLegc2hUEg=',
+                'https://media.gettyimages.com/id/472831484/photo/mountain-range-in-komodo-national-park-in-indonesia.jpg?s=612x612&w=0&k=20&c=G1r4BWvYe3EfE6l-DJNMA6I4E_xbQx5WPZqeWu2oQBg=',
+                'https://media.gettyimages.com/id/2150599561/photo/scenic-view-of-cinque-terre-at-mediterranean-coast.jpg?s=612x612&w=0&k=20&c=xm4h0Qic_wfrofcUH-8Fg3UEFlfewfP1HbXAS9WKNgc=',
+                'https://media.gettyimages.com/id/1301435486/photo/beauvert-lake-jasper-national-park-canada.jpg?s=612x612&w=0&k=20&c=LEAPEouxt30Q9ipWuQWgq0_M0MZlaou1cY3Fv-1pEaY='
+            ],
+            forest: [
+                'assets/img/discover1.jpg',
+                'assets/img/discover2.jpg',
+                'assets/img/discover3.jpg'
+            ],
+            beaches: [
+                'https://media.gettyimages.com/id/2210604384/photo/beautiful-and-rugged-n%C4%81-pali-coast-in-kauai-hawaii.jpg?s=612x612&w=0&k=20&c=MNTXc-dfr8UBl0IoeS3gufw8WufDxa2WayZJWUP3uu4=',
+                'https://media.gettyimages.com/id/1795258279/photo/santa-barbara-beach-with-palm-trees-and-city-skyline-at-sunset-california-usa.jpg?s=612x612&w=0&k=20&c=MWdWoIg1PWiJ-fNbA99o9rJvqkkdh57EV7HnmPhx3oc=',
+                'https://media.gettyimages.com/id/938335974/photo/aerial-view-of-kualoa-area-of-oahu-hawaii.jpg?s=1024x1024&w=gi&k=20&c=9kMnhmOmlZ8F28smDzh2tyIfNsMJgnqi-wUW1ZYfNJE=',
+                'https://media.gettyimages.com/id/1574603587/photo/kauai-hawaii.jpg?s=612x612&w=0&k=20&c=74f0GUjRH0PXcpbAYnnsn1DODKvyn0FZ3Z-9U86tx90=',
+                'https://media.gettyimages.com/id/1034269412/photo/mount-martha-coastal-road-aerial.jpg?s=612x612&w=0&k=20&c=wqZjG5FaTLoZFjWkag_u9N3qpDI2AudHCAZaPu5Gjgc=',
+                'https://media.gettyimages.com/id/2162403038/photo/new-england-coastline.jpg?s=612x612&w=0&k=20&c=nVAm2QNBxD20yY1AFHnnMZ-7MIbhTJhRgznpcUU6_rY=',
+                'https://media.gettyimages.com/id/872542466/photo/coastline-of-central-california-at-dusk.jpg?s=612x612&w=0&k=20&c=Gjfy9XU1_ClbekYWj44tWCx563n3AC4MtxgUo39zUsA=',
+                'https://media.gettyimages.com/id/1097301636/photo/into-the-wild.jpg?s=612x612&w=0&k=20&c=-TUeTCst84WOUzTQID-expuVhBCQWYePiv52OidNlts=',
+                'https://media.gettyimages.com/id/1345186830/photo/woman-enjoys-the-norwegian-countryside.jpg?s=612x612&w=0&k=20&c=AJcrXUT3YS8XgG6eebZjtlj_IvsVpcC_WZs8jGkBuy8=',
+                'https://media.gettyimages.com/id/1450261404/photo/morning-in-the-bay-of-marmaris-soft-dawn-yachts-and-boats-in-the-bay-of-the-mediterranean-sea.jpg?s=612x612&w=0&k=20&c=7dLw1rHdyVjLoDV0HC2FR6AvlQbVZQC5zdPEfzAU_6o=',
+                'https://media.gettyimages.com/id/1334239203/photo/person-walking-on-the-baech-at-sunset-senja-norway.jpg?s=612x612&w=0&k=20&c=yFrq8Z-gXEhz6zPiZ-bjXB7L1lrdMemtzo23yutosR4=',
+                'https://media.gettyimages.com/id/1304340761/photo/red-volcanic-mountains-and-a-blue-salt-lake-beautiful-nature-background.jpg?s=612x612&w=0&k=20&c=Hlxp59-KpCHjSn4fvhQwefSIex7BY4iZ9YyQCL63CqY=',
+                'https://media.gettyimages.com/id/477451698/photo/twelve-apostles-mountain-in-camps-bay-cape-town-south-africa.jpg?s=612x612&w=0&k=20&c=zLoLAdnbgrVQaRZpSpNtiyEJQRb4ksbP-2albNvhy5A=',
+                'https://media.gettyimages.com/id/2156743107/photo/floating-lagoon.jpg?s=612x612&w=0&k=20&c=0NCGZXOD8UsH2XM1n93L6xkpzEukn0bP4XDfN4RcNVQ=',
+                'https://media.gettyimages.com/id/1475839005/photo/aerial-view-of-railey-beach-in-krabi-province-thailand.jpg?s=612x612&w=0&k=20&c=qbkmyvofddoI4CmsCEKGuDuPA7xl3ytIWu2X-JB6Tjk='
+            ],
+            historical: [
+                'assets/img/experience1.jpg',
+                'assets/img/experience2.jpg',
+                'assets/img/discover4.jpg'
+            ],
+            living: [
+                'assets/img/place4.jpg',
+                'assets/img/place5.jpg',
+                'assets/img/about2.jpg'
+            ]
+        };
+
+        const selectElement = document.getElementById('nature-category-select');
+        const galleryElement = document.getElementById('nature-gallery');
+
+        function renderGallery(category) {
+            const images = categoryData[category];
+            galleryElement.innerHTML = '';
+            
+            images.forEach((src, index) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('nature__img-wrapper');
+                // Stagger the animation using animation delay
+                imgContainer.style.animationDelay = `${index * 0.1}s`;
+                
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `${category} image ${index + 1}`;
+                img.classList.add('nature__img');
+                
+                imgContainer.appendChild(img);
+                galleryElement.appendChild(imgContainer);
+            });
+        }
+
+        selectElement.addEventListener('change', (e) => {
+            renderGallery(e.target.value);
+        });
+
+        // Initial render
+        renderGallery('mountains');
+    </script>
+</body>
+</html>

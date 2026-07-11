@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .explore__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .explore__page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .explore__page-title {
+            font-size: var(--biggest-font-size);
+            color: var(--white-color);
+            margin-bottom: var(--mb-1);
+        }
+        .explore__page-description {
+            color: var(--text-color-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <title>Hidden Gems - Responsive Website Travel</title>
+</head>
+<body>
+    <header class="header scroll-header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Travel</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#discover" class="nav__link">Discover</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#place" class="nav__link">Places</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="explore.html" class="nav__link">Explore</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="hidden.html" class="nav__link active-link">Hidden</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="nature.html" class="nav__link">Nature</a>
+                    </li>
+                </ul>
+
+                <div class="nav__dark">
+                    <span class="change-theme-name">Dark mode</span>
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+                </div>
+
+                <i class="ri-close-line nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-function-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section" style="padding-top: 8rem; min-height: 100vh;">
+            <div class="container">
+                <div class="explore__page-header">
+                    <h1 class="explore__page-title">Hidden Gems</h1>
+                    <p class="explore__page-description">Discover the world's best-kept secrets. Explore these unpopular but breathtakingly beautiful locations that offer an unforgettable experience off the beaten path.</p>
+                </div>
+                
+                <div class="explore__grid">
+                    <!-- Gem 1 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1526857159393-27eb30c002bd?auto=format&fit=crop&w=800&q=80" alt="Huacachina" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Huacachina</h3>
+                                <span class="place__subtitle">Peru</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 2 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1523588267232-a567c3b8cbaf?auto=format&fit=crop&w=800&q=80" alt="Giethoorn" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Giethoorn</h3>
+                                <span class="place__subtitle">Netherlands</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 3 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?auto=format&fit=crop&w=800&q=80" alt="Ik Kil Cenote" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Ik Kil Cenote</h3>
+                                <span class="place__subtitle">Mexico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 4 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=800&q=80" alt="Salar de Uyuni" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Salar de Uyuni</h3>
+                                <span class="place__subtitle">Bolivia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 5 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1582206790597-2b3f27f8a379?auto=format&fit=crop&w=800&q=80" alt="Blagaj" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Blagaj</h3>
+                                <span class="place__subtitle">Bosnia & Herzegovina</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 6 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1512411985444-42861c470870?auto=format&fit=crop&w=800&q=80" alt="Jiuzhaigou Valley" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Jiuzhaigou Valley</h3>
+                                <span class="place__subtitle">China</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 7 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1506159904225-fbb5f6e3c0e3?auto=format&fit=crop&w=800&q=80" alt="Plitvice Lakes" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Plitvice Lakes</h3>
+                                <span class="place__subtitle">Croatia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 8 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1516315570077-8d264775d71f?auto=format&fit=crop&w=800&q=80" alt="Dean's Blue Hole" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Dean's Blue Hole</h3>
+                                <span class="place__subtitle">Bahamas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gem 9 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1498855926480-d98e83099315?auto=format&fit=crop&w=800&q=80" alt="Wulingyuan" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Wulingyuan</h3>
+                                <span class="place__subtitle">China</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gem 10 -->
+                    <div class="place__card">
+                        <img src="https://images.unsplash.com/photo-1447012586676-e88102a14605?auto=format&fit=crop&w=800&q=80" alt="Antelope Canyon" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-fill place__rating-icon"></i>
+                                <span class="place__rating-number">Hidden Gem</span>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">Antelope Canyon</h3>
+                                <span class="place__subtitle">USA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content grid">
+                <div class="footer__data">
+                    <h3 class="footer__title">Travel</h3>
+                    <p class="footer__description">Travel you choose the <br> destination, 
+                        we offer you the <br> experience.
+                    </p>
+                    <div>
+                        <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                            <i class="ri-facebook-box-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="footer__social">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">About</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">About Us</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Features</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">New & Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Company</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Team</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Plan y Pricing</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Become a member</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Support</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">FAQs</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Support Center</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__copy">&#169; 2026 Designed & Built by Whats.</p>
+                <div class="footer__terms">
+                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                    <a href="#" class="footer__terms-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
