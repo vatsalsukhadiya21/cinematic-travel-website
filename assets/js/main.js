@@ -172,3 +172,61 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+/*=============== LEAFLET MAP ===============*/
+const mapContainer = document.getElementById('places-map');
+if (mapContainer) {
+    // Initialize map centered roughly between our destinations
+    const map = L.map('places-map').setView([0, 110], 2);
+
+    // Add CartoDB Dark Matter tile layer for a cinematic, dark look
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(map);
+
+    // Define destinations
+    const destinations = [
+        {
+            name: "Bali",
+            coords: [-8.409518, 115.188919],
+            img: "assets/img/discover1.jpg",
+            desc: "24 tours available"
+        },
+        {
+            name: "Hawaii",
+            coords: [19.896766, -155.582782],
+            img: "assets/img/discover2.jpg",
+            desc: "15 tours available"
+        },
+        {
+            name: "Hvar",
+            coords: [43.1729, 16.4412],
+            img: "assets/img/discover3.jpg",
+            desc: "18 tours available"
+        },
+        {
+            name: "Whitehaven",
+            coords: [-20.2825, 149.0394],
+            img: "assets/img/discover4.jpg",
+            desc: "32 tours available"
+        }
+    ];
+
+    // Add markers
+    destinations.forEach(dest => {
+        const marker = L.marker(dest.coords).addTo(map);
+        
+        const popupContent = `
+            <div>
+                <img src="${dest.img}" alt="${dest.name}">
+                <h3>${dest.name}</h3>
+                <span style="display:block; margin-bottom:10px; color: var(--text-color);">${dest.desc}</span>
+                <a href="explore.html" class="button">Explore</a>
+            </div>
+        `;
+        
+        marker.bindPopup(popupContent);
+    });
+}
