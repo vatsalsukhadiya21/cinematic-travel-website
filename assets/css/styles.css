@@ -1136,3 +1136,66 @@ input { outline: none; }
 .leaflet-container a.leaflet-popup-close-button {
     color: var(--text-color);
 }
+
+/*=============== TESTIMONIAL ===============*/
+.testimonial__container {
+    padding-bottom: 2rem;
+}
+
+.testimonial__card {
+    background: var(--bg-panel);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    transition: .3s;
+}
+
+.testimonial__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.testimonial__quote {
+    font-size: 2.5rem;
+    color: var(--first-color);
+    margin-bottom: var(--mb-1);
+    opacity: 0.6;
+}
+
+.testimonial__description {
+    margin-bottom: var(--mb-1-5);
+    font-style: italic;
+    color: var(--text-color-light);
+    line-height: 1.8;
+}
+
+.testimonial__name {
+    font-size: var(--normal-font-size);
+    margin-bottom: var(--mb-0-25);
+    color: var(--title-color);
+}
+
+.testimonial__subtitle {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    display: block;
+    margin-bottom: var(--mb-1);
+}
+
+.testimonial__rating {
+    color: var(--accent-gold);
+    display: flex;
+    justify-content: center;
+    column-gap: .25rem;
+}
+
+.testimonial-pagination {
+    position: initial;
+    margin-top: var(--mb-2);
+}
+
+.testimonial-pagination .swiper-pagination-bullet-active {
+    background-color: var(--first-color);
+}

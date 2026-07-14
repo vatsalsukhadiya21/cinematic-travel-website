@@ -230,3 +230,22 @@ if (mapContainer) {
         marker.bindPopup(popupContent);
     });
 }
+
+/*==================== SWIPER TESTIMONIAL ====================*/
+let swiperTestimonial = new Swiper(".testimonial__container", {
+    grabCursor: true,
+    spaceBetween: 24,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        568: {
+            slidesPerView: 2,
+        },
+        968: {
+            slidesPerView: 3,
+        },
+    },
+})
