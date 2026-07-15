@@ -211,7 +211,7 @@ if (mapContainer && window.Globe) {
 
     const world = Globe()
         (mapContainer)
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .backgroundColor('rgba(0,0,0,0)')
         .htmlElementsData(destinations)
         .htmlElement(d => {
