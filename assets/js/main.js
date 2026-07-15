@@ -260,8 +260,8 @@ if (panoramaContainer && window.PANOLENS) {
         controlBar: false, // Hide controls for a cleaner cinematic look
     });
 
-    // Use a free high-quality equirectangular image for the demo
-    const panorama = new PANOLENS.ImagePanorama('https://pannellum.org/images/alma.jpg');
+    // Use the locally downloaded equirectangular image to avoid CORS issues
+    const panorama = new PANOLENS.ImagePanorama('assets/img/360-placeholder.jpg');
     
     viewer.add(panorama);
 
