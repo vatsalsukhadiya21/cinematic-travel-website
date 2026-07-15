@@ -250,6 +250,97 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
     },
 })
 
+/*==================== LIVE WEATHER & BEST TIME ====================*/
+const weatherData = {
+    bali: { lat: -8.4095, lon: 115.1889, bestTime: "May to September for dry, sunny weather." },
+    borabora: { lat: -16.5004, lon: -151.7415, bestTime: "May to October when the weather is dry and pleasant." },
+    hawaii: { lat: 19.8968, lon: -155.5828, bestTime: "March to September for the least rain and warmest waters." },
+    whitehaven: { lat: -20.2825, lon: 149.0394, bestTime: "September to November for perfect sailing weather." },
+    hvar: { lat: 43.1729, lon: 16.4412, bestTime: "June to September for hot beach days and vibrant nightlife." }
+};
+
+// Weather code to Remix Icon mapping (Open-Meteo WMO codes)
+function getWeatherIcon(code) {
+    if (code === 0) return { icon: 'ri-sun-fill', desc: 'Clear sky' };
+    if (code === 1 || code === 2 || code === 3) return { icon: 'ri-sun-cloudy-fill', desc: 'Partly cloudy' };
+    if (code >= 45 && code <= 48) return { icon: 'ri-mist-fill', desc: 'Fog' };
+    if (code >= 51 && code <= 67) return { icon: 'ri-drizzle-fill', desc: 'Rain' };
+    if (code >= 71 && code <= 77) return { icon: 'ri-snowy-fill', desc: 'Snow' };
+    if (code >= 80 && code <= 82) return { icon: 'ri-showers-fill', desc: 'Showers' };
+    if (code >= 95) return { icon: 'ri-thunderstorms-fill', desc: 'Thunderstorm' };
+    return { icon: 'ri-sun-fill', desc: 'Clear' };
+}
+
+async function fetchWeather(lat, lon) {
+    try {
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`);
+        const data = await response.json();
+        return {
+            temp: Math.round(data.current.temperature_2m),
+            code: data.current.weather_code
+        };
+    } catch (error) {
+        console.error("Error fetching weather:", error);
+        return null;
+    }
+}
+
+// 1. Handle Dashboard updates
+const weatherSelect = document.getElementById('weather-destination');
+const weatherTemp = document.getElementById('weather-temp');
+const weatherDesc = document.getElementById('weather-desc');
+const weatherIcon = document.getElementById('weather-icon');
+const weatherBestTime = document.getElementById('weather-best-time');
+
+if (weatherSelect) {
+    const updateDashboard = async (destinationId) => {
+        const location = weatherData[destinationId];
+        
+        // Show loading state
+        weatherTemp.textContent = '--°C';
+        weatherDesc.textContent = 'Fetching...';
+        weatherIcon.className = 'ri-loader-4-line ri-spin weather__icon';
+        
+        const weather = await fetchWeather(location.lat, location.lon);
+        
+        if (weather) {
+            const condition = getWeatherIcon(weather.code);
+            weatherTemp.textContent = `${weather.temp}°C`;
+            weatherDesc.textContent = condition.desc;
+            weatherIcon.className = `${condition.icon} weather__icon`;
+            weatherBestTime.textContent = location.bestTime;
+        } else {
+            weatherDesc.textContent = 'Failed to load weather';
+            weatherIcon.className = 'ri-error-warning-line weather__icon';
+        }
+    };
+
+    // Initial load
+    updateDashboard(weatherSelect.value);
+
+    // On change
+    weatherSelect.addEventListener('change', (e) => {
+        updateDashboard(e.target.value);
+    });
+}
+
+// 2. Handle Place Cards updates
+const placeWeatherBadges = document.querySelectorAll('.place__weather');
+placeWeatherBadges.forEach(async (badge) => {
+    const destinationId = badge.getAttribute('data-weather');
+    const location = weatherData[destinationId];
+    
+    if (location) {
+        const weather = await fetchWeather(location.lat, location.lon);
+        if (weather) {
+            const condition = getWeatherIcon(weather.code);
+            badge.innerHTML = `<i class="${condition.icon}"></i> ${weather.temp}°C`;
+        } else {
+            badge.style.display = 'none'; // Hide if failed
+        }
+    }
+});
+
 /*==================== VIRTUAL TOUR (PANOLENS) ====================*/
 const panoramaContainer = document.getElementById('panorama-container');
 if (panoramaContainer && window.PANOLENS) {

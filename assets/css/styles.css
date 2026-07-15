@@ -663,6 +663,100 @@ input { outline: none; }
   opacity: 0;
 }
 
+/*=============== WEATHER INSIGHTS ===============*/
+.weather__container {
+  padding-top: 1rem;
+}
+
+.weather__card {
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.weather__select-group {
+  width: 100%;
+}
+
+.weather__select {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  backdrop-filter: blur(10px);
+}
+
+.weather__select option {
+  background-color: var(--body-color);
+  color: var(--title-color);
+}
+
+.weather__data-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather__current {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weather__icon {
+  font-size: 3rem;
+  color: #FDB813; /* Sun color, can be dynamic */
+}
+
+.weather__temp {
+  font-size: var(--biggest-font-size);
+  font-family: var(--title-font);
+  color: var(--white-color);
+  line-height: 1;
+}
+
+.weather__desc {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+  text-transform: capitalize;
+}
+
+.weather__recommendation {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
+  flex: 1;
+  min-width: 250px;
+}
+
+.weather__recommendation h3 {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weather__recommendation p {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
 /*=============== PLACES ===============*/
 .place__card, .place__img {
   height: 280px; /* Taller, more cinematic cards */
@@ -679,6 +773,25 @@ input { outline: none; }
   overflow: var(--img-hidden);
   border-radius: 16px; 
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.place__weather {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid var(--glass-border);
 }
 
 .place__card:hover .place__img {

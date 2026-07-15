@@ -185,6 +185,37 @@
                 </div>
             </section>
 
+            <!--==================== WEATHER INSIGHTS ====================-->
+            <section class="weather section" id="weather">
+                <h2 class="section__title">Live Weather & <br> Best Time to Visit</h2>
+                <div class="weather__container container">
+                    <div class="weather__card glass-panel">
+                        <div class="weather__select-group">
+                            <select id="weather-destination" class="weather__select">
+                                <option value="bali">Bali, Indonesia</option>
+                                <option value="borabora">Bora Bora, Polynesia</option>
+                                <option value="hawaii">Hawaii, USA</option>
+                                <option value="whitehaven">Whitehaven, Australia</option>
+                                <option value="hvar">Hvar, Croatia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="weather__data-display">
+                            <div class="weather__current">
+                                <i id="weather-icon" class="ri-sun-fill weather__icon"></i>
+                                <h1 id="weather-temp" class="weather__temp">--°C</h1>
+                                <span id="weather-desc" class="weather__desc">Loading...</span>
+                            </div>
+                            
+                            <div class="weather__recommendation">
+                                <h3><i class="ri-calendar-check-line"></i> Best Time to Visit</h3>
+                                <p id="weather-best-time">Loading recommendations...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!--==================== EXPERIENCE ====================-->
             <section class="experience section">
                 <h2 class="section__title">With Our Experience <br> We Will Serve You</h2>
@@ -262,6 +293,7 @@
                     <!--==================== PLACES CARD 1 ====================-->
                     <div class="place__card">
                         <img src="assets/img/place1.jpg" alt="" class="place__img">
+                        <div class="place__weather" data-weather="bali"><i class="ri-loader-4-line ri-spin"></i></div>
                         
                         <div class="place__content">
                             <span class="place__rating">
@@ -284,6 +316,7 @@
                     <!--==================== PLACES CARD 2 ====================-->
                     <div class="place__card">
                         <img src="assets/img/place2.jpg" alt="" class="place__img">
+                        <div class="place__weather" data-weather="borabora"><i class="ri-loader-4-line ri-spin"></i></div>
                         
                         <div class="place__content">
                             <span class="place__rating">
@@ -306,6 +339,7 @@
                     <!--==================== PLACES CARD 3 ====================-->
                     <div class="place__card">
                         <img src="assets/img/place3.jpg" alt="" class="place__img">
+                        <div class="place__weather" data-weather="hawaii"><i class="ri-loader-4-line ri-spin"></i></div>
                         
                         <div class="place__content">
                             <span class="place__rating">
@@ -328,6 +362,7 @@
                     <!--==================== PLACES CARD 4 ====================-->
                     <div class="place__card">
                         <img src="assets/img/place4.jpg" alt="" class="place__img">
+                        <div class="place__weather" data-weather="whitehaven"><i class="ri-loader-4-line ri-spin"></i></div>
                         
                         <div class="place__content">
                             <span class="place__rating">
@@ -350,6 +385,7 @@
                     <!--==================== PLACES CARD 5 ====================-->
                     <div class="place__card">
                         <img src="assets/img/place5.jpg" alt="" class="place__img">
+                        <div class="place__weather" data-weather="hvar"><i class="ri-loader-4-line ri-spin"></i></div>
                         
                         <div class="place__content">
                             <span class="place__rating">
