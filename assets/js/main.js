@@ -249,3 +249,27 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
         },
     },
 })
+
+/*==================== VIRTUAL TOUR (PANOLENS) ====================*/
+const panoramaContainer = document.getElementById('panorama-container');
+if (panoramaContainer && window.PANOLENS) {
+    const viewer = new PANOLENS.Viewer({
+        container: panoramaContainer,
+        autoRotate: true,
+        autoRotateSpeed: 0.5,
+        controlBar: false, // Hide controls for a cleaner cinematic look
+    });
+
+    // Use a free high-quality equirectangular image for the demo
+    const panorama = new PANOLENS.ImagePanorama('https://pannellum.org/images/alma.jpg');
+    
+    viewer.add(panorama);
+
+    // Optional: add a tiny delay to hide the "Drag to explore" overlay on first interaction
+    panoramaContainer.addEventListener('mousedown', () => {
+        const overlay = document.querySelector('.virtual-tour__overlay');
+        if (overlay) {
+            overlay.style.opacity = '0';
+        }
+    }, { once: true });
+}

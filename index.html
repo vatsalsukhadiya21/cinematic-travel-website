@@ -240,6 +240,20 @@
                 </div>
             </section>
 
+            <!--==================== VIRTUAL TOUR ====================-->
+            <section class="virtual-tour section" id="virtual-tour">
+                <h2 class="section__title">360° Virtual Tour</h2>
+                <div class="virtual-tour__container container">
+                    <p class="virtual-tour__description">Immerse yourself in our selected destinations before you even pack your bags. Click and drag to explore.</p>
+                    <div id="panorama-container" class="virtual-tour__viewer">
+                        <div class="virtual-tour__overlay">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>Drag to explore</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!--==================== PLACES ====================-->
             <section class="place section" id="place">
                 <h2 class="section__title">Choose Your Place</h2>
@@ -564,6 +578,10 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
+
+        <!--=============== THREE JS & PANOLENS ===============-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.1/build/panolens.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>

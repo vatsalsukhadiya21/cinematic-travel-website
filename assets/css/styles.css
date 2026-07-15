@@ -611,6 +611,58 @@ input { outline: none; }
   color: var(--white-color);
 }
 
+/*=============== VIRTUAL TOUR ===============*/
+.virtual-tour__container {
+  padding-bottom: 2rem;
+}
+
+.virtual-tour__description {
+  text-align: center;
+  margin-bottom: var(--mb-2-5);
+  color: var(--text-color-light);
+}
+
+.virtual-tour__viewer {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  position: relative;
+  cursor: grab;
+  border: 1px solid var(--glass-border);
+}
+
+.virtual-tour__viewer:active {
+  cursor: grabbing;
+}
+
+.virtual-tour__overlay {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  z-index: 10;
+  pointer-events: none;
+  border: 1px solid var(--glass-border);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.virtual-tour__viewer:hover .virtual-tour__overlay {
+  opacity: 0;
+}
+
 /*=============== PLACES ===============*/
 .place__card, .place__img {
   height: 280px; /* Taller, more cinematic cards */
