@@ -51,7 +51,9 @@
                         </li>
                     </ul>
 
-                    <div class="nav__dark">
+                    <div class="nav__dark" style="display: flex; align-items: center; gap: 1rem;">
+                        <!-- Currency change button -->
+                        <i class="ri-money-dollar-circle-line change-theme" id="currency-button" title="Currency Converter"></i>
                         <!-- Theme change button -->
                         <span class="change-theme-name">Dark mode</span>
                         <i class="ri-moon-line change-theme" id="theme-button"></i>
@@ -616,6 +618,47 @@
         <!--=============== THREE JS & PANOLENS ===============-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.1/build/panolens.min.js"></script>
+
+        <!--=============== CURRENCY CONVERTER MODAL ===============-->
+        <div class="currency__modal" id="currency-modal">
+            <div class="currency__modal-content">
+                <i class="ri-close-line currency__modal-close" id="currency-close"></i>
+                <h3 class="currency__modal-title">Convert Currency</h3>
+                
+                <div class="currency__form">
+                    <div class="currency__box">
+                        <label>Amount</label>
+                        <input type="number" id="currency-amount" value="100" class="currency__input">
+                    </div>
+                    <div class="currency__box">
+                        <label>From</label>
+                        <select id="currency-from" class="currency__input">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                            <option value="AUD">AUD</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                    </div>
+                    <div class="currency__box">
+                        <label>To</label>
+                        <select id="currency-to" class="currency__input">
+                            <option value="EUR" selected>EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                            <option value="AUD">AUD</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="currency__result" id="currency-result">
+                    <span class="currency__result-value">Loading...</span>
+                </div>
+            </div>
+        </div>
 
         <!--=============== LOTTIE PLAYER ===============-->
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

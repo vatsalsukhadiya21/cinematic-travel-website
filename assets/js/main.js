@@ -436,5 +436,61 @@ magneticElements.forEach(elem => {
         elem.style.transform = 'translate(0px, 0px)';
         elem.style.transition = 'transform 0.5s ease-in-out';
     });
+    });
 });
 
+/*==================== CURRENCY CONVERTER ====================*/
+const currencyBtn = document.getElementById('currency-button');
+const currencyModal = document.getElementById('currency-modal');
+const currencyClose = document.getElementById('currency-close');
+const currencyAmount = document.getElementById('currency-amount');
+const currencyFrom = document.getElementById('currency-from');
+const currencyTo = document.getElementById('currency-to');
+const currencyResult = document.querySelector('.currency__result-value');
+
+if(currencyBtn && currencyModal) {
+    // Show modal
+    currencyBtn.addEventListener('click', () => {
+        currencyModal.classList.add('show-modal');
+        convertCurrency();
+    });
+
+    // Hide modal
+    currencyClose.addEventListener('click', () => {
+        currencyModal.classList.remove('show-modal');
+    });
+
+    // Hide on click outside
+    currencyModal.addEventListener('click', (e) => {
+        if(e.target === currencyModal) {
+            currencyModal.classList.remove('show-modal');
+        }
+    });
+
+    // Convert function
+    const convertCurrency = async () => {
+        const amount = currencyAmount.value;
+        const from = currencyFrom.value;
+        const to = currencyTo.value;
+        
+        if(amount === '') return;
+        
+        currencyResult.textContent = 'Calculating...';
+        
+        try {
+            const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+            const data = await response.json();
+            const rate = data.rates[to];
+            const convertedAmount = (amount * rate).toFixed(2);
+            
+            currencyResult.textContent = `${amount} ${from} = ${convertedAmount} ${to}`;
+        } catch (error) {
+            currencyResult.textContent = 'Error fetching rates';
+        }
+    };
+
+    // Event listeners for inputs
+    currencyAmount.addEventListener('input', convertCurrency);
+    currencyFrom.addEventListener('change', convertCurrency);
+    currencyTo.addEventListener('change', convertCurrency);
+}
