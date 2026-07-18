@@ -369,212 +369,16 @@ if (panoramaContainer && window.PANOLENS) {
     // Optional: add a tiny delay to hide the "Drag to explore" overlay on first interaction
     panoramaContainer.addEventListener('mousedown', () => {
         const overlay = document.querySelector('.virtual-tour__overlay');
-const mapContainer = document.getElementById('places-map');
-if (mapContainer && window.Globe) {
-    const destinations = [
-        {
-            name: "Bali",
-            lat: -8.409518, lng: 115.188919,
-            img: "assets/img/discover1.jpg",
-            desc: "24 tours available"
-        },
-        {
-            name: "Hawaii",
-            lat: 19.896766, lng: -155.582782,
-            img: "assets/img/discover2.jpg",
-            desc: "15 tours available"
-        },
-        {
-            name: "Hvar",
-            lat: 43.1729, lng: 16.4412,
-            img: "assets/img/discover3.jpg",
-            desc: "18 tours available"
-        },
-        {
-            name: "Whitehaven",
-            lat: -20.2825, lng: 149.0394,
-            img: "assets/img/discover4.jpg",
-            desc: "32 tours available"
-        },
-        {
-            name: "Bora Bora",
-            lat: -16.5004, lng: -151.7415,
-            img: "assets/img/place2.jpg",
-            desc: "12 tours available"
-        }
-    ];
-
-    const world = Globe()
-        (mapContainer)
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-        .backgroundColor('rgba(0,0,0,0)')
-        .htmlElementsData(destinations)
-        .htmlElement(d => {
-            const el = document.createElement('div');
-            el.innerHTML = `
-                <div class="globe-marker">
-                    <div class="globe-tooltip">
-                        <img src="${d.img}" alt="${d.name}">
-                        <h3>${d.name}</h3>
-                        <span>${d.desc}</span>
-                    </div>
-                </div>
-            `;
-            el.style.pointerEvents = 'auto';
-            el.onclick = () => {
-                world.pointOfView({ lat: d.lat, lng: d.lng, altitude: 0.5 }, 1500);
-            };
-            return el;
-        });
-
-    // Auto-rotate
-    world.controls().autoRotate = true;
-    world.controls().autoRotateSpeed = 1.0;
-    world.controls().enableDamping = true;
-    
-    // Set initial view
-    world.pointOfView({ lat: 20, lng: 0, altitude: 2 });
-}
-
-/*==================== SWIPER TESTIMONIAL ====================*/
-let swiperTestimonial = new Swiper(".testimonial__container", {
-    grabCursor: true,
-    spaceBetween: 24,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        568: {
-            slidesPerView: 2,
-        },
-        968: {
-            slidesPerView: 3,
-        },
-    },
-})
-
-/*==================== LIVE WEATHER & BEST TIME ====================*/
-const weatherData = {
-    bali: { lat: -8.4095, lon: 115.1889, bestTime: "May to September for dry, sunny weather." },
-    borabora: { lat: -16.5004, lon: -151.7415, bestTime: "May to October when the weather is dry and pleasant." },
-    hawaii: { lat: 19.8968, lon: -155.5828, bestTime: "March to September for the least rain and warmest waters." },
-    whitehaven: { lat: -20.2825, lon: 149.0394, bestTime: "September to November for perfect sailing weather." },
-    hvar: { lat: 43.1729, lon: 16.4412, bestTime: "June to September for hot beach days and vibrant nightlife." }
-};
-
-// Weather code to Remix Icon mapping (Open-Meteo WMO codes)
-function getWeatherIcon(code) {
-    if (code === 0) return { icon: 'ri-sun-fill', desc: 'Clear sky' };
-    if (code === 1 || code === 2 || code === 3) return { icon: 'ri-sun-cloudy-fill', desc: 'Partly cloudy' };
-    if (code >= 45 && code <= 48) return { icon: 'ri-mist-fill', desc: 'Fog' };
-    if (code >= 51 && code <= 67) return { icon: 'ri-drizzle-fill', desc: 'Rain' };
-    if (code >= 71 && code <= 77) return { icon: 'ri-snowy-fill', desc: 'Snow' };
-    if (code >= 80 && code <= 82) return { icon: 'ri-showers-fill', desc: 'Showers' };
-    if (code >= 95) return { icon: 'ri-thunderstorms-fill', desc: 'Thunderstorm' };
-    return { icon: 'ri-sun-fill', desc: 'Clear' };
-}
-
-async function fetchWeather(lat, lon) {
-    try {
-        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`);
-        const data = await response.json();
-        return {
-            temp: Math.round(data.current.temperature_2m),
-            code: data.current.weather_code
-        };
-    } catch (error) {
-        console.error("Error fetching weather:", error);
-        return null;
-    }
-}
-
-// 1. Handle Dashboard updates
-const weatherSelect = document.getElementById('weather-destination');
-const weatherTemp = document.getElementById('weather-temp');
-const weatherDesc = document.getElementById('weather-desc');
-const weatherIcon = document.getElementById('weather-icon');
-const weatherBestTime = document.getElementById('weather-best-time');
-
-if (weatherSelect) {
-    const updateDashboard = async (destinationId) => {
-        const location = weatherData[destinationId];
-        
-        // Show loading state
-        weatherTemp.textContent = '--°C';
-        weatherDesc.textContent = 'Fetching...';
-        weatherIcon.className = 'ri-loader-4-line ri-spin weather__icon';
-        
-        const weather = await fetchWeather(location.lat, location.lon);
-        
-        if (weather) {
-            const condition = getWeatherIcon(weather.code);
-            weatherTemp.textContent = `${weather.temp}°C`;
-            weatherDesc.textContent = condition.desc;
-            weatherIcon.className = `${condition.icon} weather__icon`;
-            weatherBestTime.textContent = location.bestTime;
-        } else {
-            weatherDesc.textContent = 'Failed to load weather';
-            weatherIcon.className = 'ri-error-warning-line weather__icon';
-        }
-    };
-
-    // Initial load
-    updateDashboard(weatherSelect.value);
-
-    // On change
-    weatherSelect.addEventListener('change', (e) => {
-        updateDashboard(e.target.value);
-    });
-}
-
-// 2. Handle Place Cards updates
-const placeWeatherBadges = document.querySelectorAll('.place__weather');
-placeWeatherBadges.forEach(async (badge) => {
-    const destinationId = badge.getAttribute('data-weather');
-    const location = weatherData[destinationId];
-    
-    if (location) {
-        const weather = await fetchWeather(location.lat, location.lon);
-        if (weather) {
-            const condition = getWeatherIcon(weather.code);
-            badge.innerHTML = `<i class="${condition.icon}"></i> ${weather.temp}°C`;
-        } else {
-            badge.style.display = 'none'; // Hide if failed
-        }
-    }
-});
-
-/*==================== VIRTUAL TOUR (PANOLENS) ====================*/
-const panoramaContainer = document.getElementById('panorama-container');
-if (panoramaContainer && window.PANOLENS) {
-    const viewer = new PANOLENS.Viewer({
-        container: panoramaContainer,
-        autoRotate: true,
-        autoRotateSpeed: 0.5,
-        controlBar: false, // Hide controls for a cleaner cinematic look
-    });
-
-    // Use the locally downloaded equirectangular image to avoid CORS issues
-    const panorama = new PANOLENS.ImagePanorama('assets/img/360-placeholder.jpg');
-    
-    viewer.add(panorama);
-
-    // Optional: add a tiny delay to hide the "Drag to explore" overlay on first interaction
-    panoramaContainer.addEventListener('mousedown', () => {
-        const overlay = document.querySelector('.virtual-tour__overlay');
         if (overlay) {
             overlay.style.opacity = '0';
         }
     }, { once: true });
 }
-
 /*==================== CUSTOM CURSOR ====================*/
 const cursor = document.getElementById('cursor');
 const cursor2 = document.getElementById('cursor2');
 
-if (cursor && cursor2 && window.innerWidth >= 968) {
+if (cursor && cursor2) {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
@@ -632,3 +436,4 @@ magneticElements.forEach(elem => {
         elem.style.transition = 'transform 0.5s ease-in-out';
     });
 });
+
