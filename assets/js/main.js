@@ -374,3 +374,34 @@ if (panoramaContainer && window.PANOLENS) {
         }
     }, { once: true });
 }
+/*==================== CUSTOM CURSOR ====================*/
+const cursor = document.getElementById('cursor');
+const cursor2 = document.getElementById('cursor2');
+
+if (cursor && cursor2 && window.innerWidth >= 968) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        // Add a slight delay for the outer circle for a cinematic trailing effect
+        setTimeout(() => {
+            cursor2.style.left = e.clientX + 'px';
+            cursor2.style.top = e.clientY + 'px';
+        }, 50);
+    });
+
+    // Add hover effect to all links, buttons, and select elements
+    const hoverElements = document.querySelectorAll('a, button, select, .place__card, .discover__card, .swiper-pagination-bullet');
+    
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+            cursor2.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+            cursor2.classList.remove('hover');
+        });
+    });
+}
+
