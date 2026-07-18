@@ -405,3 +405,15 @@ if (cursor && cursor2 && window.innerWidth >= 968) {
     });
 }
 
+
+/*==================== PARALLAX SCROLLING ====================*/
+window.addEventListener('scroll', () => {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    let scrollPosition = window.pageYOffset;
+    
+    parallaxElements.forEach(el => {
+        let speed = el.getAttribute('data-speed') || 0.5;
+        el.style.transform = 'translateY(' + scrollPosition * speed + 'px)';
+    });
+});
+
