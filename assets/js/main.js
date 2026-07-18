@@ -269,16 +269,17 @@ const weatherData = {
     hvar: { lat: 43.1729, lon: 16.4412, bestTime: "June to September for hot beach days and vibrant nightlife." }
 };
 
-// Weather code to Remix Icon mapping (Open-Meteo WMO codes)
+// Weather code to Remix Icon & Lottie mapping (Open-Meteo WMO codes)
 function getWeatherIcon(code) {
-    if (code === 0) return { icon: 'ri-sun-fill', desc: 'Clear sky' };
-    if (code === 1 || code === 2 || code === 3) return { icon: 'ri-sun-cloudy-fill', desc: 'Partly cloudy' };
-    if (code >= 45 && code <= 48) return { icon: 'ri-mist-fill', desc: 'Fog' };
-    if (code >= 51 && code <= 67) return { icon: 'ri-drizzle-fill', desc: 'Rain' };
-    if (code >= 71 && code <= 77) return { icon: 'ri-snowy-fill', desc: 'Snow' };
-    if (code >= 80 && code <= 82) return { icon: 'ri-showers-fill', desc: 'Showers' };
-    if (code >= 95) return { icon: 'ri-thunderstorms-fill', desc: 'Thunderstorm' };
-    return { icon: 'ri-sun-fill', desc: 'Clear' };
+    const lottieBase = 'https://raw.githubusercontent.com/basmilius/meteocons/master/production/fill/all/';
+    if (code === 0) return { icon: 'ri-sun-fill', lottie: lottieBase + 'clear-day.json', desc: 'Clear sky' };
+    if (code === 1 || code === 2 || code === 3) return { icon: 'ri-sun-cloudy-fill', lottie: lottieBase + 'partly-cloudy-day.json', desc: 'Partly cloudy' };
+    if (code >= 45 && code <= 48) return { icon: 'ri-mist-fill', lottie: lottieBase + 'fog.json', desc: 'Fog' };
+    if (code >= 51 && code <= 67) return { icon: 'ri-drizzle-fill', lottie: lottieBase + 'rain.json', desc: 'Rain' };
+    if (code >= 71 && code <= 77) return { icon: 'ri-snowy-fill', lottie: lottieBase + 'snow.json', desc: 'Snow' };
+    if (code >= 80 && code <= 82) return { icon: 'ri-showers-fill', lottie: lottieBase + 'drizzle.json', desc: 'Showers' };
+    if (code >= 95) return { icon: 'ri-thunderstorms-fill', lottie: lottieBase + 'thunderstorms.json', desc: 'Thunderstorm' };
+    return { icon: 'ri-sun-fill', lottie: lottieBase + 'clear-day.json', desc: 'Clear' };
 }
 
 async function fetchWeather(lat, lon) {
@@ -309,7 +310,7 @@ if (weatherSelect) {
         // Show loading state
         weatherTemp.textContent = '--°C';
         weatherDesc.textContent = 'Fetching...';
-        weatherIcon.className = 'ri-loader-4-line ri-spin weather__icon';
+        weatherIcon.src = 'https://raw.githubusercontent.com/basmilius/meteocons/master/production/fill/all/compass.json'; // loading animation
         
         const weather = await fetchWeather(location.lat, location.lon);
         
@@ -317,11 +318,11 @@ if (weatherSelect) {
             const condition = getWeatherIcon(weather.code);
             weatherTemp.textContent = `${weather.temp}°C`;
             weatherDesc.textContent = condition.desc;
-            weatherIcon.className = `${condition.icon} weather__icon`;
+            weatherIcon.src = condition.lottie;
             weatherBestTime.textContent = location.bestTime;
         } else {
             weatherDesc.textContent = 'Failed to load weather';
-            weatherIcon.className = 'ri-error-warning-line weather__icon';
+            weatherIcon.src = 'https://raw.githubusercontent.com/basmilius/meteocons/master/production/fill/all/not-available.json';
         }
     };
 
