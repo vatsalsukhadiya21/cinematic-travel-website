@@ -436,7 +436,6 @@ magneticElements.forEach(elem => {
         elem.style.transform = 'translate(0px, 0px)';
         elem.style.transition = 'transform 0.5s ease-in-out';
     });
-    });
 });
 
 /*==================== CURRENCY CONVERTER ====================*/
