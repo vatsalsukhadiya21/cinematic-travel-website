@@ -417,3 +417,23 @@ window.addEventListener('scroll', () => {
     });
 });
 
+
+/*==================== MAGNETIC BUTTONS ====================*/
+const magneticElements = document.querySelectorAll('.button, .nav__link, .home__social-link, .video__button');
+
+magneticElements.forEach(elem => {
+    elem.addEventListener('mousemove', (e) => {
+        const rect = elem.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        elem.style.transform = \	ranslate(\px, \px)\;
+        elem.style.transition = 'transform 0.1s ease-out';
+    });
+
+    elem.addEventListener('mouseleave', () => {
+        elem.style.transform = 'translate(0px, 0px)';
+        elem.style.transition = 'transform 0.5s ease-in-out';
+    });
+});
+
